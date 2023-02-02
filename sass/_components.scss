@@ -1,0 +1,129 @@
+/* Not necessarily meant to reusable in this project */
+
+/* Logo */
+.logo {
+    height: 3.25rem;
+    margin-left: 2rem;
+}
+
+/* Search Box */
+.search {
+    flex: 0 0 40%; /*no growing, no shrinking, but occupy 40% of parent element*/
+
+    /*align search bar and icon*/
+    display: flex;
+    align-items: center; /*moves from stretch to center*/
+    justify-content: center;
+    
+    &__input {
+        font-family: inherit;  /*need this for input*/
+        font-size: inherit;  /*this too*/
+        color: inherit;  /*...and this*/
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: .7rem 2rem;
+        border-radius: 100px; /*high number so we have rounded edges*/
+        margin-right: -3.25rem; /*doing this so button will move ontop of input*/
+
+        width: 90%;
+        transition: all .3s;
+
+
+        &:focus {
+            outline: none;
+            width: 100%;  /*creates growing effect from 90% above*/
+            background-color: var(--color-grey-light-3);
+        }
+
+        &::-webkit-input-placeholder { /*only works in chrome and safari browsers*/
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+
+    &__input:focus + &__button { /* + selects adjacent selector*/
+        background-color: var(--color-grey-light-3);
+    }
+
+    &__button {
+        border: none;
+        background-color: var(--color-grey-light-2);
+
+        &:focus{
+            outline: none;
+        }
+        &:active{
+            /*clicking button*/
+            transform: translateY(2px);
+        }
+    }
+
+    &__icon {
+        height: 2rem; /*very easy to adjust svg*/
+        width: 2rem;
+        fill: var(--color-grey-light-3);  
+    }
+}
+
+/* User Nav */
+.user-nav {
+    align-self: stretch; /*pulls entire nav bar to top and bottom of conatiner*/
+
+    display: flex; /*very common to have flex item to be flex container*/
+    align-items: center;
+
+    & > *{ /*selections direct children even if they have different className's*/
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%; /*allows entire area to be controlled by hover*/
+    }
+
+    & > *:hover {
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__icon-box{
+        display: flex;
+        align-items: center;
+        position: relative; /*controls __notification location*/
+    }
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+
+        fill: var(--color-grey-dark-2); /*colors entire svg*/
+    }
+
+    &__notification {
+        font-size: .8rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        color: white;
+
+        position: absolute;  /*needs parent of relative to go off of*/
+        top: 1.5rem;
+        right: 1.1rem;
+
+        display: flex; /*setup for controlling numbers*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__user{
+        display: flex;
+        align-items: center;
+    }
+
+    &__user-photo{
+        height: 3.75rem;
+        border-radius: 50%; /*creates circle*/
+        margin-right: 1rem;
+    }
+
+    &__user-name{
+
+    }
+}

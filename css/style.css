@@ -15,6 +15,21 @@ Grey dark 2: #777
 Grey dark 3: #999
 
 */
+:root {
+  /* Same as HTML but higher specificity - good for variables - global parent element */
+  --color-primary: #eb2f64;
+  /* -- signifies custom properties */
+  --color-primary-light: #FF3366;
+  --color-primary-dark: #BA265D;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  --shadow-dark: box-shadow: 0 2rem 6rem rgba(0,0,0,.4); }
+
 * {
   margin: 0;
   /* Global setup */
@@ -32,4 +47,151 @@ html {
 body {
   font-family: 'Unbounded', sans-serif;
   font-weight: 400;
-  line-height: 1.6; }
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Fixes linear gradient banner repeat 'error' */
+  min-height: 100vh; }
+
+.container {
+  max-width: 120rem;
+  margin: 8rem auto;
+  /*center trick for container inside parent element*/
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+  height: 50rem; }
+
+.header {
+  font-size: 1.4rem;
+  height: 7rem;
+  background-color: white;
+  border-bottom: var(--color-grey-light-2);
+  display: flex;
+  /* main control for children elements */
+  justify-content: space-between;
+  /*make sure this goes in container when used*/
+  align-items: center;
+  /*this one too*/ }
+
+.content {
+  display: flex;
+  /*main flex container -> holds sidebar & hotel view side by side */ }
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%;
+  /* no grow, no shrink, but % (which is why we don't want a shrink value)*/ }
+
+.hotel-view {
+  background-color: white;
+  background-color: orangered;
+  flex: 1;
+  /* Element to grow as much as it can */ }
+
+/* Not necessarily meant to reusable in this project */
+/* Logo */
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem; }
+
+/* Search Box */
+.search {
+  flex: 0 0 40%;
+  /*no growing, no shrinking, but occupy 40% of parent element*/
+  /*align search bar and icon*/
+  display: flex;
+  align-items: center;
+  /*moves from stretch to center*/
+  justify-content: center; }
+  .search__input {
+    font-family: inherit;
+    /*need this for input*/
+    font-size: inherit;
+    /*this too*/
+    color: inherit;
+    /*...and this*/
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 100px;
+    /*high number so we have rounded edges*/
+    margin-right: -3.25rem;
+    /*doing this so button will move ontop of input*/
+    width: 90%;
+    transition: all .3s; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      /*creates growing effect from 90% above*/
+      background-color: var(--color-grey-light-3); }
+    .search__input::-webkit-input-placeholder {
+      /*only works in chrome and safari browsers*/
+      font-weight: 100;
+      color: var(--color-grey-light-4); }
+  .search__input:focus + .search__button {
+    /* + selects adjacent selector*/
+    background-color: var(--color-grey-light-3); }
+  .search__button {
+    border: none;
+    background-color: var(--color-grey-light-2); }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      /*clicking button*/
+      transform: translateY(2px); }
+  .search__icon {
+    height: 2rem;
+    /*very easy to adjust svg*/
+    width: 2rem;
+    fill: var(--color-grey-light-3); }
+
+/* User Nav */
+.user-nav {
+  align-self: stretch;
+  /*pulls entire nav bar to top and bottom of conatiner*/
+  display: flex;
+  /*very common to have flex item to be flex container*/
+  align-items: center; }
+  .user-nav > * {
+    /*selections direct children even if they have different className's*/
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    /*allows entire area to be controlled by hover*/ }
+  .user-nav > *:hover {
+    background-color: var(--color-grey-light-2); }
+  .user-nav__icon-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /*controls __notification location*/ }
+  .user-nav__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark-2);
+    /*colors entire svg*/ }
+  .user-nav__notification {
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+    position: absolute;
+    /*needs parent of relative to go off of*/
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    /*setup for controlling numbers*/
+    justify-content: center;
+    align-items: center; }
+  .user-nav__user {
+    display: flex;
+    align-items: center; }
+  .user-nav__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    /*creates circle*/
+    margin-right: 1rem; }

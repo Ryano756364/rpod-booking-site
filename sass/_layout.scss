@@ -1,0 +1,33 @@
+.container {
+    max-width: 120rem;
+    margin: 8rem auto; /*center trick for container inside parent element*/
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+    height: 50rem;
+}
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: white;
+    border-bottom: var(--color-grey-light-2);
+
+    display: flex;  /* main control for children elements */
+    justify-content: space-between; /*make sure this goes in container when used*/
+    align-items: center; /*this one too*/
+}
+
+.content {
+    display: flex;  /*main flex container -> holds sidebar & hotel view side by side */
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+    flex: 0 0 18%;  /* no grow, no shrink, but % (which is why we don't want a shrink value)*/
+}
+
+.hotel-view {
+    background-color: white;
+    background-color: orangered;
+    flex: 1;  /* Element to grow as much as it can */
+}

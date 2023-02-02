@@ -14,6 +14,52 @@
         <title>R-Pod Booking Site</title>
     </head>
     <body>
-        
+        <div class="container"> <!--All content floating box-->
+            <header class="header">
+                <img src="./img/logo-no-background.png" alt="r-pod logo" class="logo">
+
+                <form action="#" class="search">
+                    <input type="text" class="search__input" placeholder="Search hotels">
+                    <button class="search__button">
+                        <svg class="search__icon">
+                            <!-- Doing this allows us to adjust these with css + href will only work on web server-->
+                            <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                </form>
+
+                <nav class="user-nav">
+                    <div class="user-nav__icon-box">
+                        <svg class="user-nav__icon">
+                            <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                        </svg>
+                        <span class="user-nav__notification">
+                            5
+                        </span>
+                    </div>
+
+                    <div class="user-nav__icon-box">
+                        <svg class="user-nav__icon">
+                            <use xlink:href="img/sprite.svg#icon-chat"></use>
+                        </svg>
+                        <span class="user-nav__notification">
+                            10
+                        </span>
+                    </div>
+                    <div class="user-nav__user">
+                        <img src="./img/ryan.jpg" alt="User photo Ryan" class="user-nav__user-photo">
+                        <span class="user-nav__user-name">Ryan</span>
+                    </div>
+                </nav>
+            </header>
+            <div class="content"> <!--All content below header-->
+                <div class="sidebar">
+                    Navigation
+                </div>
+                <main class="hotel-view">
+                    Hotel View
+                </main>
+            </div>
+        </div>
     </body>
 </html>
