@@ -24,10 +24,16 @@
 .sidebar {
     background-color: var(--color-grey-dark-1);
     flex: 0 0 18%;  /* no grow, no shrink, but % (which is why we don't want a shrink value)*/
+
+    display: flex;
+    flex-direction: column; /*overwrites row default*/
+    justify-content: space-between; /*pushes about text to bottom of container*/
 }
 
 .hotel-view {
     background-color: white;
     background-color: orangered;
     flex: 1;  /* Element to grow as much as it can */
+
+    height: 80rem; /*just for testing - remove before deployment*/
 }

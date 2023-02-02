@@ -127,3 +127,73 @@
 
     }
 }
+
+
+/* Side nav bar */
+.side-nav{
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+    &__item{
+        position: relative;  /*needed for child pseudo element for positioning */
+
+        &:not(:last-child){
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__item::before {
+        /*small line that becomes visible and heads to the right side*/
+        content: ""; /*always need this*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        
+        transform: scaleY(0); /*allows for growth in & direction before hover effect takes place*/
+        transform-origin: bottom; /*overrides default from center*/
+        transition: transform .3s,
+                    width .2s .2s,
+                    background-color .1s; /*could implement cubic-bezier here as well*/
+    }
+
+    &__item:hover::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before{
+        background-color: var(--color-primary-light);
+    }
+
+    &__link:link,
+    &__link:visited{
+        color: var(--color-grey-light-1);
+        text-decoration: none;  /*gets rid of list underline*/
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+
+        display: flex;
+        align-items: center;
+
+        z-index: 10; /*allows text to be above slidding banner*/
+        position: relative; /*need this for z-index*/
+    }
+
+    &__icon{
+        width: 1.75rem; /*these are usually formatted to be squares*/
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor; /*color of parent element (link and visted pseudo elements) good browser support too, especially if hover effect is used on parent elements*/
+    }
+}
+
+.about{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--color-grey-light-4);
+}

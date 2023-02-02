@@ -20,9 +20,9 @@
 
 ` SCSS notation + nesting of html elements in the file `
 
-``
+` Including 1 sprite.svg file to allow us to only make 1 HTTP request `
 
-``
+` Y-Transform animation with slight lightening of meny button upon user click for feedback `
 
 ``
 
