@@ -10,7 +10,7 @@
     font-size: 1.4rem;
     height: 7rem;
     background-color: white;
-    border-bottom: var(--color-grey-light-2);
+    border-bottom: 1px solid var(--color-grey-light-2);
 
     display: flex;  /* main control for children elements */
     justify-content: space-between; /*make sure this goes in container when used*/
@@ -32,7 +32,6 @@
 
 .hotel-view {
     background-color: white;
-    background-color: orangered;
     flex: 1;  /* Element to grow as much as it can */
 
     height: 80rem; /*just for testing - remove before deployment*/

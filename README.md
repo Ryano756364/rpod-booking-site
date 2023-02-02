@@ -24,11 +24,11 @@
 
 ` Y-Transform animation with slight lightening of meny button upon user click for feedback `
 
-``
+` Infinite focus effect on buttons `
 
-``
+` @keyframes `
 
-``
+` Flex-wrap `
 
 ``
 

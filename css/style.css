@@ -28,7 +28,9 @@ Grey dark 3: #999
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
-  --shadow-dark: box-shadow: 0 2rem 6rem rgba(0,0,0,.4); }
+  --shadow-dark: box-shadow: 0 2rem 6rem rgba(0,0,0,.4);
+  --icon-width: 1.75rem;
+  --icon-height: 1.75rem; }
 
 * {
   margin: 0;
@@ -67,7 +69,7 @@ body {
   font-size: 1.4rem;
   height: 7rem;
   background-color: white;
-  border-bottom: var(--color-grey-light-2);
+  border-bottom: 1px solid var(--color-grey-light-2);
   display: flex;
   /* main control for children elements */
   justify-content: space-between;
@@ -91,7 +93,6 @@ body {
 
 .hotel-view {
   background-color: white;
-  background-color: orangered;
   flex: 1;
   /* Element to grow as much as it can */
   height: 80rem;
@@ -181,8 +182,8 @@ body {
     /*colors entire svg*/ }
   .user-nav__notification {
     font-size: .8rem;
-    height: 1.75rem;
-    width: 1.75rem;
+    height: var(--icon-height);
+    width: var(--icon-width);
     border-radius: 50%;
     background-color: var(--color-primary);
     color: white;
@@ -248,9 +249,8 @@ body {
     position: relative;
     /*need this for z-index*/ }
   .side-nav__icon {
-    width: 1.75rem;
-    /*these are usually formatted to be squares*/
-    height: 1.75rem;
+    height: var(--icon-height);
+    width: var(--icon-width);
     margin-right: 2rem;
     fill: currentColor;
     /*color of parent element (link and visted pseudo elements) good browser support too, especially if hover effect is used on parent elements*/ }
@@ -260,3 +260,87 @@ body {
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4); }
+
+/* Hotel gallery */
+.gallery {
+  display: flex; }
+  .gallery__photo {
+    /*In responsive, we want flexible images, so always use %*/
+    width: 100%;
+    display: block;
+    /*should be block or inline-block to avoid white-space*/ }
+
+/* Hotel overview */
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-grey-light-2); }
+  .overview__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem; }
+  .overview__stars {
+    margin-right: auto;
+    /*pushes all white space to right from this div but avoids occupying entire element incase of accidental hover*/
+    display: flex; }
+  .overview__icon-star, .overview__icon-location {
+    height: var(--icon-height);
+    width: var(--icon-width);
+    fill: var(--color-primary); }
+  .overview__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center; }
+  .overview__icon-location {
+    margin-right: .5rem; }
+  .overview__rating {
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: white;
+    align-self: stretch;
+    /*overriding from the stretch above*/
+    padding: 0 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
+  .overview__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px; }
+  .overview__rating-count {
+    font-size: 1rem;
+    text-transform: uppercase; }
+
+/* Button */
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  /*want this because we have varying button sizes on page*/
+  border-bottom: 1px solid currentColor;
+  /*this way border will have same color as text, good for when you have hover effect too like i do below*/
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  /*helps make button a bit more modular*/
+  cursor: pointer;
+  transition: all .2s; }
+  .btn-inline:hover {
+    color: var(--color-grey-dark-1); }
+  .btn-inline:focus {
+    outline: none;
+    animation: pulsate 1s infinite; }
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none; }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25); }
+  100% {
+    transform: scale(1);
+    box-shadow: none; } }
