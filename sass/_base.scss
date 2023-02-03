@@ -40,6 +40,12 @@ Grey dark 3: #999
     --line: 1px solid var(--color-grey-light-2);
 }
 
+$bp-largest: 75em; // 1200 px -> using rem instead of px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.75em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-tiny: 31.25em; // 500px
+
 *{
     margin: 0; /* Global setup */
     padding: 0;
@@ -53,7 +59,11 @@ Grey dark 3: #999
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%  /* 10px setup strategy for global font*/
+    font-size: 62.5%;  /* 10px setup strategy for global font*/
+
+    @media only screen and (max-width: $bp-large){
+        font-size: 50%;
+    }
 }
 
 body{

@@ -14,6 +14,12 @@
     display: flex;
     align-items: center; /*moves from stretch to center*/
     justify-content: center;
+
+    @media only screen and (max-width: $bp-tiny){
+        order: 1; //will make it last item...to the end
+        flex: 0 0 100%; //width of element will be 100%, to not shrink or grow
+        background-color: var(--color-grey-light-2);
+    }
     
     &__input {
         font-family: inherit;  /*need this for input*/
@@ -126,11 +132,23 @@
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
+    @media only screen and (max-width: $bp-medium){
+        display: flex;
+        margin: 0;
+    }
     &__item{
         position: relative;  /*needed for child pseudo element for positioning */
 
         &:not(:last-child){
             margin-bottom: 1rem;
+
+            @media only screen and (max-width: $bp-medium){
+                margin-bottom: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium){
+            flex: 1; //Items grow as much as they can
         }
     }
 
@@ -173,6 +191,16 @@
 
         z-index: 10; /*allows text to be above slidding banner*/
         position: relative; /*need this for z-index*/
+
+        @media only screen and (max-width: $bp-medium){
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+            padding: 1.75rem .5rem;
+        }
     }
 
     &__icon{
@@ -180,6 +208,13 @@
         width: var(--icon-width);
         margin-right: 2rem;
         fill: currentColor; /*color of parent element (link and visted pseudo elements) good browser support too, especially if hover effect is used on parent elements*/
+
+        @media only screen and (max-width: $bp-small){
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -188,6 +223,10 @@
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+
+    @media only screen and (max-width: $bp-medium){
+        display: none;
+    }
 }
 
 /* Hotel gallery */
@@ -214,6 +253,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -249,16 +293,28 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small){
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.8rem;
+        }
     }
     &__rating-count {
         font-size: 1.1rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.3rem;
+        }
     }
 }
 
@@ -397,6 +453,11 @@
     margin: 3.5rem auto;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium){
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
     
     &__text {
         margin-bottom: 2rem;
@@ -441,6 +502,10 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+
+    @media only screen and (max-width: $bp-medium){
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;

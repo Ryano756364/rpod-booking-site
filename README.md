@@ -32,7 +32,7 @@
 
 ` masking and background image color adjustment `
 
-``
+` Using flex to easily push a side nav-bar up top upon screen size decrease `
 
 ``
 
